@@ -1,4 +1,6 @@
-%function [fitness,individual] = ag()
+function [fitness,individual,gens] = ag()
+
+fprintf('\nGenerating population...')
 
 % Generate initial variables
 % --------------------------------------------------------------
@@ -93,7 +95,7 @@ for i = 1:options.Generations
 	% ----------------------------------------------------------
 
 	% New generation is equal to the offspring
-	%options.Population = offspring ;
+	options.Population = offspring ;
 
 	%% Convert genotype to phenotype
 	%for j = 1:options.PopulationSize
@@ -107,6 +109,10 @@ end % for i
 if i == options.Generations
 	exitFlag = 3;
 end % if i
+
+fitness = options.BestFitness ;
+individual = options.BestIndividual ;
+gens = i ;
 
 generateOutputMessage(exitFlag, i, options) ;
 		
