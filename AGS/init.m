@@ -6,6 +6,6 @@ options.MutationRate = 0.05 ;
 options.Generations = 10000 ;
 options.StallGen = inf ;
 options.BitSize = 12 ;
-options.Threshold = 200 ;
+options.Threshold = 960521 ;
 options.BestFitness = inf ;
 options.BestIndividual = inf ;

@@ -6,6 +6,9 @@ fitnesslist = zeros(1,iter) ;
 genslist = zeros(1,iter) ;
 
 for i = 1:iter
+
+	fprintf('\nIteration %d out of %d\n',i,iter)
+
 	[fitness,individual,gens] = ags() ;
 	individuallist(i) = individual ;
 	fitnesslist(i) = fitness ;

@@ -1,6 +1,6 @@
 function [fitness,individual,gens] = ags()
 
-fprintf('\nGenerating population...\n')
+fprintf('\nGenerating population...')
 
 % Generate initial variables
 % --------------------------------------------------------------
@@ -11,7 +11,7 @@ exitFlag = 0 ;
 
 % Generate initial population
 % --------------------------------------------------------------
-options.Population = randi([-2047,2047],1,30) ;
+options.Population = randi([-2047,2047],1,options.PopulationSize) ;
 % --------------------------------------------------------------
 
 % Start function loop
@@ -19,7 +19,7 @@ options.Population = randi([-2047,2047],1,30) ;
 options.RelativeFitness = zeros(1,options.PopulationSize) ;
 options.CumulativeFitness = zeros(1,options.PopulationSize) ;
 
-fprintf('\nStarting evolution...\n')
+fprintf('\nStarting evolution...')
 
 for i = 1:options.Generations
 
