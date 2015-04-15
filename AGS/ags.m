@@ -28,6 +28,15 @@ for i = 1:options.Generations
 	options.FitnessValues = arrayfun(@fitnessfcn,options.Population) ;
 	[minvalue,minindex] = min(options.FitnessValues) ;
 
+	% Plot particle behaviour
+	% --------------------------------------------------------------
+	clf
+	fplot(@fitnessfcn,[-2048,2048])
+	hold on
+	plot(options.Population(:),options.FitnessValues(:),'or')
+	pause
+	% --------------------------------------------------------------
+
 	% Check if best fitness is below a certain threshold
 	if minvalue < options.Threshold
 		options.BestFitness = minvalue ;
