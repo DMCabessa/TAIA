@@ -25,27 +25,36 @@ for i = 1:options.Generations
 	% Evaluate fitness of population and stop clauses
 	% --------------------------------------------------------------
 	options.FitnessValues = arrayfun(@fitnessfcn,options.Population) ;
-	[minvalue,minindex] = min(options.FitnessValues) ;
+	[maxvalue,maxindex] = max(options.FitnessValues) ;
+
+	% Plot particle behaviour
+	% --------------------------------------------------------------
+	clf
+	fplot(@fitnessfcn,[-2048,2048])
+	hold on
+	plot(options.Population(:),options.FitnessValues(:),'or')
+	pause
+	% --------------------------------------------------------------
 
 	% Check if best fitness is below a certain threshold
-	if minvalue < options.Threshold
-		options.BestFitness = minvalue ;
-		options.BestIndividual = options.Population(minindex) ;
+	if maxvalue < options.Threshold
+		options.BestFitness = maxvalue ;
+		options.BestIndividual = options.Population(maxindex) ;
 		exitFlag = 1;
-	end % if minvalue
+	end % if maxvalue
 
 	% Check last time best fitness has been increased
-	if minvalue < options.BestFitness
-		%fprintf('(%d)',options.Population(minindex))
-		options.BestFitness = minvalue ;
-		options.BestIndividual = options.Population(minindex) ;
+	if maxvalue < options.BestFitness
+		%fprintf('(%d)',options.Population(maxindex))
+		options.BestFitness = maxvalue ;
+		options.BestIndividual = options.Population(maxindex) ;
 		timeSinceLastImprove = 0 ;
 	else
 		timeSinceLastImprove = timeSinceLastImprove + 1 ;
 		if timeSinceLastImprove >= options.StallGen
 			exitFlag = 2;
 		end % if timeSinceLastImprove
-	end % if minvalue
+	end % if maxvalue
 
 	if exitFlag > 0
 		break ;
