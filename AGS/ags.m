@@ -80,12 +80,18 @@ for i = 1:options.Generations
 	% Start mate pool
 	% ----------------------------------------------------------	
 	offidx = 1 ;
+	tries = 0 ;
 
 	for j = 1:floor(options.PopulationSize/2)
 		parentA = roulette_wheel(options) ;
 		parentB = roulette_wheel(options) ;
 		while parentB == parentA
-			parentB = roulette_wheel(options) ;
+			if tries > options.PopulationSize*10
+				parentB = getAny(options,parentA) ;
+			else
+				parentB = roulette_wheel(options) ;
+				tries = tries + 1 ;
+			end % if tries
 		end % while parentB
 
 		[childA, childB] = mate(parentA, parentB, options) ;
