@@ -29,16 +29,16 @@ for i = 1:options.Generations
 	[minvalue,minindex] = min(options.FitnessValues) ;
 
 	% Plot particle behaviour
-	% --------------------------------------------------------------
+	%{
 	clf
 	fplot(@fitnessfcn,[-2048,2048])
 	hold on
 	plot(options.Population(:),options.FitnessValues(:),'or')
 	pause
-	% --------------------------------------------------------------
+	%}
 
 	% Check if best fitness is below a certain threshold
-	if minvalue < options.Threshold
+	if minvalue <= options.Threshold
 		options.BestFitness = minvalue ;
 		options.BestIndividual = options.Population(minindex) ;
 		exitFlag = 1;
@@ -62,8 +62,8 @@ for i = 1:options.Generations
 	end % if exitFlag
 	% --------------------------------------------------------------
 
-	total = sum(options.FitnessValues) ;
-	options.RelativeFitness = options.FitnessValues./total ;
+	total = sum(1./(options.FitnessValues)) ;
+	options.RelativeFitness = (1./(options.FitnessValues))./total ;
 	options.CumulativeFitness(1) = options.RelativeFitness(1) ;
 
 	% Generate cumulative fitness
