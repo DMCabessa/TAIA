@@ -1,6 +1,6 @@
 % Script to run AG and compare multiple results
 
-iter = 10;
+iter = 30;
 individuallist = zeros(1,iter) ;
 fitnesslist = zeros(1,iter) ;
 genslist = zeros(1,iter) ;
