@@ -25,7 +25,10 @@ for i = 1:options.Generations
 	% Evaluate fitness of population and stop clauses
 	% --------------------------------------------------------------
 	options.FitnessValues = arrayfun(@fitnessfcn,options.Population) ;
-	[maxvalue,maxindex] = max(options.FitnessValues) ;
+	[minvalue,minindex] = min(options.FitnessValues) ;
+	maxvalue = max(options.FitnessValues) ;
+
+	t = maxvalue + minvalue ;
 
 	% Plot particle behaviour
 	% --------------------------------------------------------------
@@ -37,32 +40,32 @@ for i = 1:options.Generations
 	% --------------------------------------------------------------
 
 	% Check if best fitness is below a certain threshold
-	if maxvalue < options.Threshold
-		options.BestFitness = maxvalue ;
-		options.BestIndividual = options.Population(maxindex) ;
+	if minvalue < options.Threshold
+		options.BestFitness = minvalue ;
+		options.BestIndividual = options.Population(minindex) ;
 		exitFlag = 1;
-	end % if maxvalue
+	end % if minvalue
 
 	% Check last time best fitness has been increased
-	if maxvalue < options.BestFitness
-		%fprintf('(%d)',options.Population(maxindex))
-		options.BestFitness = maxvalue ;
-		options.BestIndividual = options.Population(maxindex) ;
+	if minvalue < options.BestFitness
+		%fprintf('(%d)',options.Population(minindex))
+		options.BestFitness = minvalue ;
+		options.BestIndividual = options.Population(minindex) ;
 		timeSinceLastImprove = 0 ;
 	else
 		timeSinceLastImprove = timeSinceLastImprove + 1 ;
 		if timeSinceLastImprove >= options.StallGen
 			exitFlag = 2;
 		end % if timeSinceLastImprove
-	end % if maxvalue
+	end % if minvalue
 
 	if exitFlag > 0
 		break ;
 	end % if exitFlag
 	% --------------------------------------------------------------
 
-	total = sum(options.FitnessValues) ;
-	options.RelativeFitness = options.FitnessValues./total ;
+	total = sum(1./(options.FitnessValues)) ;
+	options.RelativeFitness = (1./(options.FitnessValues))./total ;
 	options.CumulativeFitness(1) = options.RelativeFitness(1) ;
 
 	% Generate cumulative fitness
