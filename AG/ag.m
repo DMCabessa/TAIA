@@ -98,9 +98,9 @@ for i = 1:options.Generations
 		end % while parentB
 
 		[childA, childB] = mate(parentA, parentB, options) ;
-		offspring(offidx,:) = childA ;
+		offspring(offidx) = childA ;
 		offidx = offidx + 1 ;
-		offspring(offidx,:) = childB ;
+		offspring(offidx) = childB ;
 		offidx = offidx + 1 ;
 	end % for j
 	% ----------------------------------------------------------
