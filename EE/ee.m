@@ -61,7 +61,22 @@ for i = 1:options.Generations
 
 	% Recombination zone
 	% ----------------------------------------------------------
-	
+	offspring = recombination(options) ;
+	% ----------------------------------------------------------
+
+	% Survival selection
+	% ----------------------------------------------------------
+	options = survivals(options,offspring) ;
 	% ----------------------------------------------------------	
 
 end % for i
+
+if i == options.Generations
+	exitFlag = 3;
+end % if i
+
+fitness = options.BestFitness ;
+individual = options.BestIndividual ;
+gens = i ;
+
+generateOutputMessage(exitFlag, i, options) ;

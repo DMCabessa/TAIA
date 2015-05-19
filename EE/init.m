@@ -1,14 +1,17 @@
 function options = init()
 
-options.PopulationSize = 6 ;
+options.PopulationSize = 30 ;
+options.OffspringSize = 7 * options.PopulationSize ;
 options.NVars = 30 ;
 % Not used by now
 % options.KVars = option.NVars*(options.NVars-1)/2 ;
 options.UB = 15 ;
 options.LB = -15 ;
 options.Generations = 1000 ;
-options.StallGen = 100 ;
+options.StallGen = 200 ;
 options.Threshold = 0 ;
+options.BestFitness = inf ;
+options.BestIndividual = inf ;
 
 % Params for mutation
 options.tau = 1/sqrt(2*sqrt(options.NVars)) ;
