@@ -9,11 +9,6 @@ timeSinceLastImprove = 0 ;
 exitFlag = 0 ;
 % --------------------------------------------------------------
 
-% Generate initial population
-% --------------------------------------------------------------
-options.Population = randi([-2047,2047],1,options.PopulationSize) ;
-% --------------------------------------------------------------
-
 % Start function loop
 % --------------------------------------------------------------
 options.RelativeFitness = zeros(1,options.PopulationSize) ;

@@ -9,3 +9,8 @@ options.BitSize = 12 ;
 options.Threshold = 100 ;
 options.BestFitness = inf ;
 options.BestIndividual = inf ;
+
+% Generate initial population
+% --------------------------------------------------------------
+options.Population = randi([-2047,2047],1,options.PopulationSize) ;
+% --------------------------------------------------------------
