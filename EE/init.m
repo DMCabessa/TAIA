@@ -7,13 +7,13 @@ options.NVars = 30 ;
 % options.KVars = option.NVars*(options.NVars-1)/2 ;
 options.UB = 15 ;
 options.LB = -15 ;
-options.Generations = 1000 ;
-options.StallGen = 200 ;
-options.Threshold = 0 ;
+options.Generations = 300000 ;
+options.StallGen = inf;
+options.Threshold = 0.1 ;
 options.BestFitness = inf ;
 options.BestIndividual = inf ;
 
 % Params for mutation
 options.tau = 1/sqrt(2*sqrt(options.NVars)) ;
 options.tau_script = 1/sqrt(2*options.NVars) ;
-options.epsilon = 0.1 ;
+options.epsilon = 0.01 ;
