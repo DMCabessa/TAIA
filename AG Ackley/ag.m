@@ -1,4 +1,4 @@
-function [fitness,individual,gens] = ag()
+%function [fitness,individual,gens] = ag()
 
 fprintf('\nGenerating population...')
 
@@ -98,6 +98,14 @@ for i = 1:options.Generations
 
 	% New generation is equal to the offspring
 	options.Population = offspring ;
+
+	% Plot best fitness graph
+	xs = 1:i ;
+	ys(i) = options.BestFitness ;
+	plot(xs,ys)
+	xlabel('Generations')
+	ylabel('Best fitness')
+	drawnow
 
 end % for i
 % --------------------------------------------------------------
