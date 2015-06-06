@@ -21,4 +21,5 @@
 * Best fitness: 7.566
 * Average fitness: 7.372 ± 0.171
 
+> More detailed results can be seen in the pictures of this folder.
 > Further experiments will contain generations and runtime measures.
