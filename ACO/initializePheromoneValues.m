@@ -1,4 +1,4 @@
-%% initializePheromoneValues - Start pherormone values constant
+%% initializePheromoneValues - Starts the pherormone values with a constant t0
 %
 % T = initializePheromoneValues(t0,n,range)
 %
