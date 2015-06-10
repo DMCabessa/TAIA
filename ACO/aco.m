@@ -1,7 +1,7 @@
 %% aco - Ant Colony Optimization algorithm
 %
 % This function runs the ACO algorithm over a model composed by the space of the problem
-% and a quality function. Namely:
+% and a quality function (plus some control variables). Namely:
 % 
 % Dimensions: 		model.S.n
 % Upper boundary: 	model.S.UB
@@ -13,7 +13,7 @@
 % [sbs,gens] = aco(model)
 %
 % Authors: npvc, vfp
-% Since: 06/04/2015
+% Since: 06/10/2015
 function [sbs,gens] = aco(model)
 
 % Initialization

@@ -7,7 +7,7 @@ iter = 5 ;
 model.vars.t0 = 0.000001 ;
 model.vars.na = 50 ;
 model.vars.range = 80 ;
-model.vars.ro = 0.1 ;
+model.vars.ro = 0.9 ;
 model.vars.mutationRate = 0.01 ;
 
 tic
@@ -19,7 +19,7 @@ end % for i
 time = toc ;
 
 fprintf('\nResults: ')
-fprintf('\n> Best result: %d',max(cellfun(@model.f,num2cell(s,1)))) ;
+fprintf('\n> Best result: %d',min(cellfun(@model.f,num2cell(s,1)))) ;
 fprintf('\n> Average result: %d',mean(cellfun(@model.f,num2cell(s,1)))) ;
 fprintf('\n> Standard deviantion: %d',std(cellfun(@model.f,num2cell(s,1)))) ;
 fprintf('\n\n> Average generations: %d',mean(gens)) ;
