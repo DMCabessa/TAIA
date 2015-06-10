@@ -7,6 +7,7 @@
 % Upper boundary: 	model.S.UB
 % Lower boundary: 	model.S.LB
 % Quality function:	model.f
+% Variable struct:	model.vars
 %
 % sbs = aco(model)
 % [sbs,gens] = aco(model)
@@ -17,7 +18,7 @@ function [sbs,gens] = aco(model)
 
 % Initialization
 % -------------------------------------------------------
-props = initializeProperties(model.S.n,model.S.LB,model.S.UB) ;
+props = initializeProperties(model.S.n,model.S.LB,model.S.UB,model.vars) ;
 T = initializePheromoneValues(props.t0,props.n,props.range) ;
 sbs = props.UB*ones(props.n,1) ;
 % -------------------------------------------------------

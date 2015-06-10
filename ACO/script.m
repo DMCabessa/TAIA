@@ -2,7 +2,13 @@ model.f = @ackleysfcn ;
 model.S.n = 30 ;
 model.S.LB = -15 ;
 model.S.UB = 15 ;
-iter = 10 ;
+iter = 5 ;
+
+model.vars.t0 = 0.000001 ;
+model.vars.na = 50 ;
+model.vars.range = 80 ;
+model.vars.ro = 0.1 ;
+model.vars.mutationRate = 0.01 ;
 
 tic
 for i = 1:iter

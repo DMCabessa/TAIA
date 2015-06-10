@@ -3,20 +3,20 @@
 % props = initializeProperties(dim,lb,ub)
 %
 % See also INITIALIZEPHEROMONEVALUES
-function props = initializeProperties(dim,lb,ub)
+function props = initializeProperties(dim,lb,ub,vars)
 
 props.n = dim ;
 props.UB = ub ;
 props.LB = lb ;
 
-props.t0 = 0.000001 ;
-props.na = 50 ;
-props.range = 80 ;
+props.t0 = vars.t0 ; % 0.000001, 0.1
+props.na = vars.na ; % 15, 50
+props.range = vars.range ; % 40, 80
 props.alpha = 1 ;
-props.ro = 0.9 ;
+props.ro = vars.ro ; % 0.3, 0.9
 props.Q = 20 ;
 props.threshold = 0.1 ;
-props.mutationRate = 0.01 ;
+props.mutationRate = vars.mutationRate ; % 0.01, 0.1
 props.generations = 1000 ;
 props.stallGen = ceil(props.generations/3) ;
 
