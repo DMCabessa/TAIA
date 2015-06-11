@@ -43,7 +43,7 @@ while ~terminationConditions(model,sbs,props,i,stall)
 			end % if r
 		end % for i 
 
-		% Optional (do it later)
+		% Optional
 		s = localSearch(s,props,model.f) ;
 
 		if model.f(s) < model.f(sbs)
